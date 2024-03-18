@@ -1,0 +1,23 @@
+class Solution:
+    def calPoints(self, operations: List[str]) -> int:
+        stack = []
+        scor = 0
+        for i in operations:
+            match i:
+                case '+':
+                    score = stack[-1] + stack[-2]
+                    stack.append(score)
+                case 'D':
+                    score = stack[-1] * 2
+                    stack.append(score)
+                case 'C':
+                    stack.pop()
+                case default:
+                    score = int(i)
+                    stack.append(score)
+        
+        for num in stack:
+            
+            scor = scor + num
+            
+        return scor
