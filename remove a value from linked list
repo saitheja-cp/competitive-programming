@@ -1,0 +1,11 @@
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        pnode = ListNode(0)
+        temp = pnode
+        while head:
+            if head.val != val:
+                pnode.next = head
+                pnode = pnode.next
+            head = head.next
+        pnode.next = None
+        return temp.next
